@@ -17,11 +17,19 @@ function don8_settings_body()
 	}
 	?>
 
-	<div class="wrap don8-settings">		
+	<div class="wrap don8-settings">
 		<form name="option-form" method="post">
-		<b>Enter your PayPal e-mail address: </b>
-		<input type="text" name="don8_paypal" value="<?php print get_option("don8_paypal"); ?>"/>
-		<input type="submit" name="Don8Options" />
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row">Your PayPal e-mail address</th>
+					<td><input type="text" name="don8_paypal" value="<?php print get_option("don8_paypal"); ?>"/></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">Question</th>
+					<td>Answer</td>
+				</tr>
+			</table>
+			<input type="submit" name="Don8Options" />
 		</form>
 	</div>
 	<?php

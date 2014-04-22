@@ -16,4 +16,5 @@ Tutorials and recources:
 //It is good practice to segment your code into different files. This is a good technique for including them:
 require_once (plugin_dir_path(__FILE__).'/admin/admin.php');
 require_once (plugin_dir_path(__FILE__).'/shortcodes.php');
+require_once (plugin_dir_path(__FILE__).'/functions/form.php');
 ?>
