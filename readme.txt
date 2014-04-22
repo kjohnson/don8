@@ -1,12 +1,12 @@
-=== Media Selector ===
+=== Don8 ===
 
 Contributors: BrashRebel
 
-Tags: demo
+Tags: donations, donate, fundraising, paypal
 
-Requires at least: 2.0.0
+Requires at least: 3.7.0
 
-Tested up to: 3.6
+Tested up to: 3.9
 
 Stable tag: 1.0
 
@@ -19,15 +19,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 
-
-There is no special functionality here. This plugin is not for use, it is only a starting point for making real plugins.
+A very basic, easy to use donations plugin.
 
 
 == Installation ==
 
 
 
-You don't really ever need to activate this plugin.
+1. Download the latest version
+1. Upload uncompressed package to wp-content/plugins
+1. Activate on the Plugins page in your dashboard
 
 
 
@@ -38,8 +39,7 @@ You don't really ever need to activate this plugin.
 = What is this plugin for? =
 
 
-
-Providing some time saving material for creating a new plugin.
+Giving site owners a very simple option for setting up a donation form on their site.
 
 
 == Changelog ==
