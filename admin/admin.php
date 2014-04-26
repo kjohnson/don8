@@ -6,7 +6,7 @@ add_action("admin_menu","don8_settings_page");
 
 function don8_settings_page()
 {
-	add_menu_page("Don8","Don8","manage_options","don8.php", "don8_settings_body");
+	add_submenu_page( 'options-general.php', 'Don8 Options', 'Don8', 'manage_options', 'don8', 'don8_settings_body' );
 }
 
 function don8_settings_body()
