@@ -12,14 +12,15 @@ function don8_settings_page()
 function don8_settings_body()
 {
 	$don8_email = $_POST["don8_paypal"];
+	$don8_cause = $_POST["don8_cause"];
 	if(isset($_POST["Don8Options"])) //Catches the fact that the submit button has been pressed
 	{
-		if (is_email($don8_email)) {
-			update_option("don8_paypal", $don8_email);
+		if (is_email($don8_email)) { update_option("don8_paypal", $don8_email);
 		} else {
 			$don8_email = '';
 			update_option("don8_paypal", $don8_email);
 		}
+		update_option("don8_cause", $don8_cause);
 	}
 	?>
 
@@ -31,8 +32,8 @@ function don8_settings_body()
 					<td><input type="text" name="don8_paypal" value="<?php print get_option("don8_paypal"); ?>"/></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row">Question</th>
-					<td>Answer</td>
+					<th scope="row">Cause name</th>
+					<td><input type="text" name="don8_cause" value="<?php esc_attr_e(get_option("don8_cause")); ?>"/></td>
 				</tr>
 			</table>
 			<input type="submit" name="Don8Options" />
