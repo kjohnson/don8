@@ -8,7 +8,7 @@ Requires at least: 3.7.0
 
 Tested up to: 3.9
 
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 
 License: GPLv2 or later
 
@@ -43,6 +43,12 @@ Giving site owners a very simple option for setting up a donation form on their 
 
 
 == Changelog ==
+
+= 0.1.3 =
+
+* Properly render `[don8]` shortcode
+* Added cause parameter to `[don8]`shortcode
+* Added email parameter to `[don8]`shortcode
 
 = 0.1.2 =
 

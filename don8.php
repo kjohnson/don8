@@ -2,7 +2,7 @@
 /*
 Plugin Name: Don8
 Description: Making donations on your WordPress website simpler.
-Version: 0.1.2
+Version: 0.1.3
 Author: Kyle Maurer
 Author URI: http://realbigmarketing.com/staff/kyle
 */
