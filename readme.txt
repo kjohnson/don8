@@ -8,7 +8,7 @@ Requires at least: 3.7.0
 
 Tested up to: 3.9
 
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 
 License: GPLv2 or later
 
@@ -24,16 +24,12 @@ A very basic, easy to use donations plugin.
 
 == Installation ==
 
-
-
 1. Download the latest version
-1. Upload uncompressed package to wp-content/plugins
+1. Upload uncompressed package to `wp-content/plugins`
 1. Activate on the Plugins page in your dashboard
 
 
-
 == Frequently Asked Questions ==
-
 
 
 = What is this plugin for? =
@@ -44,11 +40,17 @@ Giving site owners a very simple option for setting up a donation form on their 
 
 == Changelog ==
 
+= 0.1.4 =
+
+* Added value option for setting default donation amount
+* Added value parameter to `[don8]` shortcode
+* Included value option in the button code
+
 = 0.1.3 =
 
 * Properly render `[don8]` shortcode
-* Added cause parameter to `[don8]`shortcode
-* Added email parameter to `[don8]`shortcode
+* Added cause parameter to `[don8]` shortcode
+* Added email parameter to `[don8]` shortcode
 
 = 0.1.2 =
 
