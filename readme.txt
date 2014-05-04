@@ -8,7 +8,7 @@ Requires at least: 3.7.0
 
 Tested up to: 3.9
 
-Stable tag: 1.0
+Stable tag: 0.1.2
 
 License: GPLv2 or later
 
@@ -44,7 +44,9 @@ Giving site owners a very simple option for setting up a donation form on their 
 
 == Changelog ==
 
-= 1.0 =
-
+= 0.1.2 =
 
 * Initial release.
+* Created settings page
+* Option for saving PayPal e-mail address
+* Option for saving cause
