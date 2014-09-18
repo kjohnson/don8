@@ -8,7 +8,7 @@ Author URI: http://realbigmarketing.com/staff/kyle
 */
 
 /*
-Tutorials and recources:
+Tutorials and resources:
 
 */
 
