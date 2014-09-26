@@ -11,17 +11,20 @@ class don8 {
 
 	public function don8( $atts, $content = null ) {
 		// Get values from Don8 options
-		$don8_email = get_option( 'don8_paypal_email' );
-		$don8_cause = esc_attr( get_option( 'don8_cause' ) );
+		$don8_email    = get_option( 'don8_paypal_email' );
+		$don8_cause    = esc_attr( get_option( 'don8_cause' ) );
 		$don8_currency = esc_attr( get_option( 'don8_currency' ) );
-		$don8_value = esc_attr( get_option( 'don8_value' ) );
+		$don8_value    = esc_attr( get_option( 'don8_value' ) );
 // Set Don8 options and defaults for parameters
 		extract( shortcode_atts( array(
-			'cause' => $don8_cause,
-			'email' => $don8_email,
+			'cause'    => $don8_cause,
+			'email'    => $don8_email,
 			'currency' => $don8_currency,
-			'value' => $don8_value,
+			'value'    => $don8_value,
 		), $atts ) );
+		if ( empty( $currency ) ) {
+			$currency = 'USD';
+		}
 
 		$don8_button = '<form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">

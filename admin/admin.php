@@ -66,11 +66,7 @@ class don8Settings {
 					<tr valign="top">
 						<th scope="row"><label for="don8_currency">Currency Code</label></th>
 						<td><input type="text" id="don8_currency" name="don8_currency"
-						           value="<?php if ( ! empty( $currency ) ) {
-							           echo $currency;
-						           } else {
-							           echo 'USD';
-						           } ?>"/></td>
+						           value="<?php echo $currency; ?>"/></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="don8_value">Amount</label></th>
