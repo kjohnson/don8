@@ -50,7 +50,6 @@ I would like to incorporate some of the following:
 * Refactored codebase to be primarily OOP
 * Added currency setting and shortcode parameter
 * Implemented `is_email()` validation for email setting
-*
 
 = 0.1.4 =
 

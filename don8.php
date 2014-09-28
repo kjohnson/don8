@@ -13,4 +13,5 @@ Tutorials and resources:
 */
 
 require_once (plugin_dir_path(__FILE__).'/admin/admin.php');
+require_once (plugin_dir_path(__FILE__).'/admin/tinymce.php');
 require_once (plugin_dir_path(__FILE__).'/functions/form.php');
