@@ -7,9 +7,9 @@ Author: Kyle Maurer
 Author URI: http://realbigmarketing.com/staff/kyle
 */
 
-/*
-Tutorials and resources:
-
+/**
+ * Tutorials and resources:
+ * http://code.tutsplus.com/tutorials/guide-to-creating-your-own-wordpress-editor-buttons--wp-30182
 */
 
 require_once( plugin_dir_path( __FILE__ ) . '/admin/admin.php' );
@@ -32,7 +32,7 @@ function don8_add_buttons( $plugin_array ) {
 }
 
 function don8_register_buttons( $buttons ) {
-	array_push( $buttons, 'don8' ); // dropcap', 'recentposts
+	array_push( $buttons, 'don8' );
 	return $buttons;
 }
 
