@@ -1,5 +1,5 @@
 (function() {
-    tinymce.create('tinymce.plugins.Wptuts', {
+    tinymce.create('tinymce.plugins.don8', {
         /**
          * Initializes the plugin, this will be executed after the plugin has been created.
          * This call is done before the editor instance has finished it's initialization so use the onInit event
@@ -9,7 +9,18 @@
          * @param {string} url Absolute URL to where the plugin is located.
          */
         init : function(ed, url) {
+            ed.addButton('don8', {
+                title : 'Don8',
+                cmd : 'don8',
+                class: 'mce-don8'
+            });
 
+            ed.addCommand('don8', function() {
+                var selected_text = ed.selection.getContent();
+                var return_text = '';
+                return_text = '[don8]';
+                ed.execCommand('mceInsertContent', 0, return_text);
+            });
         },
 
         /**
@@ -34,15 +45,15 @@
          */
         getInfo : function() {
             return {
-                longname : 'Wptuts Buttons',
-                author : 'Lee',
-                authorurl : 'http://wp.tutsplus.com/author/leepham',
-                infourl : 'http://wiki.moxiecode.com/index.php/TinyMCE:Plugins/example',
+                longname : 'Don8',
+                author : 'Kyle Maurer',
+                authorurl : 'http://realbigplugins.com',
+                infourl : 'http://realbigplugins.com',
                 version : "0.1"
             };
         }
     });
 
     // Register plugin
-    tinymce.PluginManager.add( 'wptuts', tinymce.plugins.Wptuts );
+    tinymce.PluginManager.add( 'don8', tinymce.plugins.don8 );
 })();
