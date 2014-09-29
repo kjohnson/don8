@@ -3,7 +3,7 @@ Contributors: BrashRebel
 Tags: donations, donate, fundraising, paypal
 Requires at least: 3.7.0
 Tested up to: 4.0
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,10 @@ I would like to incorporate some of the following:
 * A sidebar widget which renders a button and has options for overriding the defaults
 
 == Changelog ==
+
+= 0.3 =
+
+* Added Don8 button to TinyMCE editor which inserts the `[don8]` shortcode
 
 = 0.2 =
 
