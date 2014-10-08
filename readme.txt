@@ -10,9 +10,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 Don8 is an incredibly easy to use, very straightforward WordPress plugin, used for placing a PayPal donate button on your site. The plugin comes with settings for defining defaults for:
-* Cause
-* Amount
-* PayPal email address
+
+* Cause,
+* Amount,
+* PayPal email address,
 * Currency
 
 To use, simply place the `[don8]` shortcode in your content and the settings defaults will be used. Shortcode parameters can be used to override the default settings. Here is an example:
@@ -46,6 +47,12 @@ I would like to incorporate some of the following:
 
 * Option to show text fields so end users could define things like the amount on their own
 * A sidebar widget which renders a button and has options for overriding the defaults
+
+= How can I suggest improvements? =
+
+First of all, if you do, I will be completely excited. Nothing makes me want to work on a plugin and make it better more than someone taking the time to tell me they're using it and have ideas for improvement.
+
+So if you do, the support forum here is fine but posting [issues here](http://github.com/brashrebel/don8) would be absolutely ideal.
 
 == Changelog ==
 
