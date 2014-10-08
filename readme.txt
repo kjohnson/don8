@@ -1,5 +1,6 @@
 === Don8 ===
 Contributors: BrashRebel
+Donate link: http://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=admin%40realbigmarketing%2ecom
 Tags: donations, donate, fundraising, paypal
 Requires at least: 3.7.0
 Tested up to: 4.0
