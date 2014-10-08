@@ -2,6 +2,7 @@
 /*
 Plugin Name: Don8
 Description: Making donations on your WordPress website simpler.
+Donate link: http://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=admin%40realbigmarketing%2ecom
 Version: 0.3
 Author: Kyle Maurer
 Author URI: http://realbigmarketing.com/staff/kyle
