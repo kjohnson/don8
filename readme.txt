@@ -27,6 +27,11 @@ This example would render a PayPal button which, when clicked on, would take the
 1. Upload uncompressed package to `wp-content/plugins`
 1. Activate on the Plugins page in your dashboard
 
+== Screenshots ==
+
+1. Settings page
+2. Using the shortcode in a post
+3. Viewing the button on the front end with output HTML shown
 
 == Frequently Asked Questions ==
 
