@@ -74,55 +74,31 @@ class Don8Widget extends WP_Widget {
 
 		// Everything below here (up until echoing out after_widget) is fully in your control. This is where the display
 		// of your widget will be. Add HTML, add PHP, add Javascript, add whatever!
+        $email    = isset( $instance['email'] ) ? $instance['email'] : '';
+        $cause    = isset( $instance['cause'] ) ? $instance['cause'] : '';
+        $value    = isset( $instance['value'] ) ? $instance['value'] : '';
+        $currency = isset( $instance['currency'] ) ? $instance['currency'] : '';
 
-		// Get other options. Don't worry toooooo much about what these are doing. Just copy/paste them, tweak the names,
-		// but they work pretty well.
+        $button = '<form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="' . esc_html( $email ) . '">
+<input type="hidden" name="item_name" value="' . esc_html( $cause ) . '">
+<input type="hidden" name="currency_code" value="' . esc_html( $currency ) . '">
+<input type="hidden" name="amount" value="' . esc_html( $value ) . '">
+<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
+</form>';
 
-		// Get the checkbox option
-		$checkbox = isset( $instance['checkbox'] ) ? true : false;
+        echo $button;
 
-		// Get the select box option
-		$selectbox = isset( $instance['selectbox'] ) ? $instance['selectbox'] : false;
-
+        /*
 		// Get the image option
 		$image = isset( $instance['image'] ) ? $instance['image'] : false;
-
-		// Echo out the other options to the page.
-
-		// The checkbox
-		if ( $checkbox ) {
-
-			// Everything between these brackets will only happen IF the checkbox is checked.
-			?>
-			The checkbox is checked! Woohoo!!
-		<?php
-		} else {
-
-			// Everything here will happen when the checkbox is NOT checked.
-			?>
-			The checkbox is NOT checked! Darn!
-		<?php
-		}
-
-		// The select box
-		if ( $selectbox ) {
-
-			// This will show when the user has selected something, anything.
-			?>
-			You have selected <?php echo $selectbox; ?>!
-		<?php
-		} else {
-
-			// This will show if the select box has not been used.
-			?>
-			You have not selected anything!
-		<?php
-		}
 
 		// The image
 		if ( $image ) {
 			echo '<p>' . wp_get_attachment_image( $image, 'small' ) . '</p>';
 		}
+        */
 
 		// Echo out anything after the widget, don't mess with this or delete it.
 		echo $args['after_widget'];
@@ -145,8 +121,7 @@ class Don8Widget extends WP_Widget {
 		$cause    = isset( $instance['cause'] ) ? $instance['cause'] : '';
 		$value    = isset( $instance['value'] ) ? $instance['value'] : '';
 		$currency = isset( $instance['currency'] ) ? $instance['currency'] : '';
-		$checkbox = isset( $instance['checkbox'] ) ? 'checked' : '';
-		$image    = isset( $instance['image'] ) ? $instance['image'] : '';
+		//$image    = isset( $instance['image'] ) ? $instance['image'] : '';
 
 		// Output the HTML
 		// These can be confusing. Just copy/paste them as needed and be sure to change the txt where needed (like in
@@ -198,16 +173,10 @@ class Don8Widget extends WP_Widget {
 				echo get_option( 'don8_value' );
 			} ?>"/>
 		</p>
-		<!-- A checkbox -->
-		<p>
-			<label for="<?php echo $this->get_field_id( 'checkbox' ); ?>">Checkbox</label>
-			<input type="checkbox" name="<?php echo $this->get_field_name( 'checkbox' ); ?>"
-			       id="<?php echo $this->get_field_id( 'checkbox' ); ?>" value="1" <?php echo $checkbox; ?> />
-		</p>
 
 		<!-- An image uploader -->
 		<p>
-			<?php don8_media_uploader( $this->get_field_name( 'image' ), $image ); ?>
+			<?php //don8_media_uploader( $this->get_field_name( 'image' ), $image ); ?>
 		</p>
 	<?php
 	}
@@ -232,8 +201,7 @@ class Don8Widget extends WP_Widget {
 		$instance['cause']    = ! empty( $new_instance['cause'] ) ? strip_tags( $new_instance['cause'] ) : null;
 		$instance['value']    = ! empty( $new_instance['value'] ) ? floatval( $new_instance['value'] ) : null;
 		$instance['currency'] = ! empty( $new_instance['currency'] ) ? strip_tags( $new_instance['currency'] ) : null;
-		$instance['checkbox'] = isset( $new_instance['checkbox'] ) ? '1' : null;
-		$instance['image']    = isset( $new_instance['image'] ) ? $new_instance['image'] : null;
+		//$instance['image']    = isset( $new_instance['image'] ) ? $new_instance['image'] : null;
 
 		// Return our sanitized options
 		return $instance;

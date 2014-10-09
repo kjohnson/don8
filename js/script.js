@@ -35,7 +35,7 @@
     tinymce.PluginManager.add( 'don8', tinymce.plugins.don8 );
 })();
 
-function backend_media_uploader(e){
+function don8_media_uploader(e){
     var send_attachment_bkp = wp.media.editor.send.attachment,
         button = jQuery(e);
 
