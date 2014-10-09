@@ -11,7 +11,8 @@ Author URI: http://realbigmarketing.com/staff/kyle
  * Tutorials and resources:
  * http://code.tutsplus.com/tutorials/guide-to-creating-your-own-wordpress-editor-buttons--wp-30182
  */
-
+// Include the back-end media uploader!
+require_once( plugin_dir_path( __FILE__ ) . '/functions/uploader.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/admin/admin.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/admin/widget.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/functions/form.php' );
