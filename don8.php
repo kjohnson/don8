@@ -10,9 +10,10 @@ Author URI: http://realbigmarketing.com/staff/kyle
 /**
  * Tutorials and resources:
  * http://code.tutsplus.com/tutorials/guide-to-creating-your-own-wordpress-editor-buttons--wp-30182
-*/
+ */
 
 require_once( plugin_dir_path( __FILE__ ) . '/admin/admin.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/admin/widget.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/functions/form.php' );
 
 /**
@@ -25,17 +26,31 @@ function don8_buttons() {
 	add_filter( 'mce_buttons', 'don8_register_buttons' );
 }
 
+// Add the don8 shortcode button
 function don8_add_buttons( $plugin_array ) {
 	$plugin_array['don8'] = plugins_url( '/js/script.js', __FILE__ );
 
 	return $plugin_array;
 }
 
+// Register the shortcode button for TinyMCE
 function don8_register_buttons( $buttons ) {
 	array_push( $buttons, 'don8' );
+
 	return $buttons;
 }
 
+// Give the TinyMCE button a $ instead of an image
 function don8_tinymce_button_style() {
 	echo '<style>i.mce-i-don8:before { content: "$"; }</style>';
 }
+
+// Necessary scripts and styling for backend stuff
+function don8_scripts( $hook ) {
+	if ( $hook == 'widgets.php' ) {
+		wp_enqueue_style( 'don8', plugins_url( '/css/style.css', __FILE__ ) );
+		wp_enqueue_script( 'don8', plugins_url( '/js/script.js', __FILE__ ), array( 'jquery' ) );
+	}
+}
+
+add_action( 'admin_enqueue_scripts', 'don8_scripts' );
