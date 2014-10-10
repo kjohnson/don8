@@ -27,10 +27,12 @@ class don8Settings {
 		add_option( 'don8_cause', '' );
 		add_option( 'don8_currency', '' );
 		add_option( 'don8_value', '' );
+		add_option( 'don8_button', '' );
 		register_setting( 'don8_settings', 'don8_paypal_email' );
 		register_setting( 'don8_settings', 'don8_cause' );
 		register_setting( 'don8_settings', 'don8_currency' );
 		register_setting( 'don8_settings', 'don8_value' );
+		register_setting( 'don8_settings', 'don8_button' );
 	}
 
 	public function body() {
@@ -43,6 +45,7 @@ class don8Settings {
 				<?php settings_fields( 'don8_settings' );
 				$email    = get_option( 'don8_paypal_email' );
 				$currency = get_option( 'don8_currency' );
+				$button = get_option( 'don8_button' );
 				?>
 				<h3>Donation default values</h3>
 
@@ -72,6 +75,10 @@ class don8Settings {
 						<th scope="row"><label for="don8_value">Amount</label></th>
 						<td><input type="text" id="don8_value" name="don8_value"
 						           value="<?php echo get_option( 'don8_value' ); ?>"/></td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><label for="don8_button">Button image</label></th>
+						<td><?php don8_media_uploader( 'don8_button', $button ); ?></td>
 					</tr>
 				</table>
 				<?php submit_button(); ?>

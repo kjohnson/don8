@@ -15,15 +15,20 @@ class don8 {
 		$don8_cause    = esc_attr( get_option( 'don8_cause' ) );
 		$don8_currency = esc_attr( get_option( 'don8_currency' ) );
 		$don8_value    = esc_attr( get_option( 'don8_value' ) );
+		$don8_button    = esc_attr( get_option( 'don8_button' ) );
 // Set Don8 options and defaults for parameters
 		extract( shortcode_atts( array(
 			'cause'    => $don8_cause,
 			'email'    => $don8_email,
 			'currency' => $don8_currency,
 			'value'    => $don8_value,
+			'button'    => $don8_button
 		), $atts ) );
 		if ( empty( $currency ) ) {
 			$currency = 'USD';
+		}
+		if ( empty( $button ) ) {
+			$button = 'http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif';
 		}
 
 		$don8_button = '<form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
@@ -32,7 +37,7 @@ class don8 {
 <input type="hidden" name="item_name" value="' . esc_html( $cause ) . '">
 <input type="hidden" name="currency_code" value="' . esc_html( $currency ) . '">
 <input type="hidden" name="amount" value="' . esc_html( $value ) . '">
-<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
+<input type="image" src="' . wp_get_attachment_url( $button ) . '" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
 </form>';
 
 		return $don8_button;

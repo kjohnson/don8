@@ -78,6 +78,7 @@ class Don8Widget extends WP_Widget {
         $cause    = isset( $instance['cause'] ) ? $instance['cause'] : '';
         $value    = isset( $instance['value'] ) ? $instance['value'] : '';
         $currency = isset( $instance['currency'] ) ? $instance['currency'] : '';
+        $image = isset( $instance['image'] ) ? $instance['image'] : false;
 
         $button = '<form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
@@ -85,20 +86,16 @@ class Don8Widget extends WP_Widget {
 <input type="hidden" name="item_name" value="' . esc_html( $cause ) . '">
 <input type="hidden" name="currency_code" value="' . esc_html( $currency ) . '">
 <input type="hidden" name="amount" value="' . esc_html( $value ) . '">
-<input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
+<input type="image" src="' . wp_get_attachment_url( $image ) . '" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
 </form>';
 
         echo $button;
 
-        /*
-		// Get the image option
-		$image = isset( $instance['image'] ) ? $instance['image'] : false;
-
 		// The image
 		if ( $image ) {
-			echo '<p>' . wp_get_attachment_image( $image, 'small' ) . '</p>';
+			echo '<p>' . wp_get_attachment_url( $image ) . '</p>';
 		}
-        */
+
 
 		// Echo out anything after the widget, don't mess with this or delete it.
 		echo $args['after_widget'];
@@ -121,7 +118,7 @@ class Don8Widget extends WP_Widget {
 		$cause    = isset( $instance['cause'] ) ? $instance['cause'] : '';
 		$value    = isset( $instance['value'] ) ? $instance['value'] : '';
 		$currency = isset( $instance['currency'] ) ? $instance['currency'] : '';
-		//$image    = isset( $instance['image'] ) ? $instance['image'] : '';
+		$image    = isset( $instance['image'] ) ? $instance['image'] : '';
 
 		// Output the HTML
 		// These can be confusing. Just copy/paste them as needed and be sure to change the txt where needed (like in
@@ -176,7 +173,7 @@ class Don8Widget extends WP_Widget {
 
 		<!-- An image uploader -->
 		<p>
-			<?php //don8_media_uploader( $this->get_field_name( 'image' ), $image ); ?>
+			<?php don8_media_uploader( $this->get_field_name( 'image' ), $image ); ?>
 		</p>
 	<?php
 	}
@@ -201,7 +198,7 @@ class Don8Widget extends WP_Widget {
 		$instance['cause']    = ! empty( $new_instance['cause'] ) ? strip_tags( $new_instance['cause'] ) : null;
 		$instance['value']    = ! empty( $new_instance['value'] ) ? floatval( $new_instance['value'] ) : null;
 		$instance['currency'] = ! empty( $new_instance['currency'] ) ? strip_tags( $new_instance['currency'] ) : null;
-		//$instance['image']    = isset( $new_instance['image'] ) ? $new_instance['image'] : null;
+		$instance['image']    = isset( $new_instance['image'] ) ? $new_instance['image'] : null;
 
 		// Return our sanitized options
 		return $instance;

@@ -48,7 +48,7 @@ function don8_tinymce_button_style() {
 
 // Necessary scripts and styling for backend stuff
 function don8_scripts( $hook ) {
-	if ( $hook == 'widgets.php' ) {
+	if ( $hook == 'widgets.php' || $hook == 'settings_page_don8' ) {
 		wp_enqueue_style( 'don8', plugins_url( '/css/style.css', __FILE__ ) );
 		wp_enqueue_script( 'don8', plugins_url( '/js/script.js', __FILE__ ), array( 'jquery' ) );
 	}
