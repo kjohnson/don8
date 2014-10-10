@@ -2,7 +2,7 @@
 /*
 Plugin Name: Don8
 Description: Making donations on your WordPress website simpler.
-Version: 0.3
+Version: 0.4
 Author: Kyle Maurer
 Author URI: http://realbigmarketing.com/staff/kyle
 */
@@ -10,6 +10,9 @@ Author URI: http://realbigmarketing.com/staff/kyle
 /**
  * Tutorials and resources:
  * http://code.tutsplus.com/tutorials/guide-to-creating-your-own-wordpress-editor-buttons--wp-30182
+ * https://github.com/joelworsham/backend-media-uploader
+ * http://davidwalsh.name/php-ternary-examples
+ * https://tommcfarlin.com/add-javascript-in-wordpress/
  */
 // Include the back-end media uploader!
 require_once( plugin_dir_path( __FILE__ ) . '/functions/uploader.php' );
@@ -51,6 +54,7 @@ function don8_scripts( $hook ) {
 	if ( $hook == 'widgets.php' || $hook == 'settings_page_don8' ) {
 		wp_enqueue_style( 'don8', plugins_url( '/css/style.css', __FILE__ ) );
 		wp_enqueue_script( 'don8', plugins_url( '/js/script.js', __FILE__ ), array( 'jquery' ) );
+		wp_enqueue_media();
 	}
 }
 

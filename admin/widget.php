@@ -74,13 +74,14 @@ class Don8Widget extends WP_Widget {
 
 		// Everything below here (up until echoing out after_widget) is fully in your control. This is where the display
 		// of your widget will be. Add HTML, add PHP, add Javascript, add whatever!
-        $email    = isset( $instance['email'] ) ? $instance['email'] : '';
-        $cause    = isset( $instance['cause'] ) ? $instance['cause'] : '';
-        $value    = isset( $instance['value'] ) ? $instance['value'] : '';
-        $currency = isset( $instance['currency'] ) ? $instance['currency'] : '';
-        $image = isset( $instance['image'] ) ? $instance['image'] : false;
+		$email    = isset( $instance['email'] ) ? $instance['email'] : '';
+		$cause    = isset( $instance['cause'] ) ? $instance['cause'] : '';
+		$value    = isset( $instance['value'] ) ? $instance['value'] : '';
+		$currency = isset( $instance['currency'] ) ? $instance['currency'] : '';
+		$image    = isset( $instance['image'] ) ? $instance['image'] : false;
+		$image    = ! empty( $image ) ? $image : get_option( 'don8_button' );
 
-        $button = '<form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
+		$button = '<form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="' . esc_html( $email ) . '">
 <input type="hidden" name="item_name" value="' . esc_html( $cause ) . '">
@@ -89,13 +90,7 @@ class Don8Widget extends WP_Widget {
 <input type="image" src="' . wp_get_attachment_url( $image ) . '" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
 </form>';
 
-        echo $button;
-
-		// The image
-		if ( $image ) {
-			echo '<p>' . wp_get_attachment_url( $image ) . '</p>';
-		}
-
+		echo $button;
 
 		// Echo out anything after the widget, don't mess with this or delete it.
 		echo $args['after_widget'];
