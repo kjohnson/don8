@@ -59,3 +59,39 @@ function don8_scripts( $hook ) {
 }
 
 add_action( 'admin_enqueue_scripts', 'don8_scripts' );
+
+function don8_stripe( $args ) {
+	$args = array(
+		'id' => '',
+		'text' => '',
+		'key' => '',
+		'image' => '',
+		'amount' => 5,
+		'name' => '',
+		'description' => ''
+	);
+	?>
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+	<button id="customButton">Purchase</button>
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh',
+    image: '/square-image.png',
+    token: function(token) {
+		// Use the token to create the charge with a server-side script.
+		// You can access the token ID with `token.id`
+	}
+  });
+
+  document.getElementById('customButton').addEventListener('click', function(e) {
+	  // Open Checkout with further options
+	  handler.open({
+      name: 'Demo Site',
+      description: '2 widgets ($20.00)',
+      amount: <?php echo $args['amount']; ?>
+    });
+    e.preventDefault();
+  });
+</script>
+<?php }
+add_action('the_post', 'don8_stripe');
