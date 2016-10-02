@@ -26,6 +26,14 @@ email="kyle@test.com"
 amount="10000000000"
 button="http://example.com/images/button.png"]`
 
+The button parameter can also accept custom button text:
+
+`[don8 cause="Adoption Fund"
+currency="USD"
+email="kyle@test.com"
+amount="10000000000"
+button="Help Us Today"]`
+
 This example would render a PayPal button which, when clicked on, would take the user to a PayPal screen where they can enter in their payment information to make a donation to kyle@test.com for $10,000,000,000 towards the Adoption Fund.
 
 == Installation ==
