@@ -36,9 +36,16 @@ class don8 {
 <input type="hidden" name="business" value="' . esc_html( $email ) . '">
 <input type="hidden" name="item_name" value="' . esc_html( $cause ) . '">
 <input type="hidden" name="currency_code" value="' . esc_html( $currency ) . '">
-<input type="hidden" name="amount" value="' . esc_html( $value ) . '">
-<input type="image" src="' . esc_html( $button ) . '" border="0" name="submit" alt="Donate to ' . esc_html( $cause ) . '">
-</form>';
+<input type="hidden" name="amount" value="' . esc_html( $value ) . '">';
+
+        // Check of the `button` parameter is a valid URL, otherwise use as custom button text.
+        if( filter_var($button, FILTER_VALIDATE_URL) ) {
+            $don8_button .= '<input type="image" src="' . esc_html($button) . '" border="0" name="submit" alt="Donate to ' . esc_html($cause) . '">';
+        } else {
+            $don8_button .= '<input type="submit" name="submit" alt="Donate to ' . esc_html($cause) . '" value="' . esc_html($button) . '">';
+        }
+
+        $don8_button .= '</form>';
 
 		return $don8_button;
 	}
