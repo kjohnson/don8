@@ -17,6 +17,7 @@ Author URI: http://realbigmarketing.com/staff/kyle
 // Include the back-end media uploader!
 require_once( plugin_dir_path( __FILE__ ) . '/functions/uploader.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/admin/admin.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/admin/tinymce.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/admin/widget.php' );
 require_once( plugin_dir_path( __FILE__ ) . '/functions/form.php' );
 
@@ -56,6 +57,9 @@ function don8_scripts( $hook ) {
 		wp_enqueue_script( 'don8', plugins_url( '/js/script.js', __FILE__ ), array( 'jquery' ) );
 		wp_enqueue_media();
 	}
+    if ( $hook == 'post.php' ) {
+        wp_enqueue_script( 'don8-tinymce', plugins_url( '/js/tinymce.js', __FILE__ ), array( 'jquery' ) );
+    }
 }
 
 add_action( 'admin_enqueue_scripts', 'don8_scripts' );
